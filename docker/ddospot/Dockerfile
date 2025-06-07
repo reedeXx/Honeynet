@@ -29,7 +29,7 @@ RUN apk --no-cache -U add \
     sed -i "s#self.logger.info('\%s - \%s' \% (msg, raw_json))#self.logger.info(raw_json)#g" /opt/ddospot/ddospot/pots/generic/generic.py && \
     sed -i "s#self.logger.info('\%s - \%s' \% (msg, raw_json))#self.logger.info(raw_json)#g" /opt/ddospot/ddospot/pots/ntp/ntp.py && \
     sed -i "s#self.logger.info('\%s - \%s' \% (msg, raw_json))#self.logger.info(raw_json)#g" /opt/ddospot/ddospot/pots/ssdp/ssdp.py && \
-    # We are using logrotate
+    
     sed -i "s#rotate_size = 10#rotate_size = 9999#g" /opt/ddospot/ddospot/pots/chargen/chargenpot.conf && \
     sed -i "s#rotate_size = 10#rotate_size = 9999#g" /opt/ddospot/ddospot/pots/dns/dnspot.conf && \
     sed -i "s#rotate_size = 10#rotate_size = 9999#g" /opt/ddospot/ddospot/pots/generic/genericpot.conf && \
