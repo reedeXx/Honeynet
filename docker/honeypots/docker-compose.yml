@@ -1,0 +1,27 @@
+networks:
+  honeypots_local:
+
+services:
+  honeypots:
+    build: .
+    container_name: honeypots
+    stdin_open: true
+    tty: true
+    restart: always
+    tmpfs:
+     - /tmp:uid=2000,gid=2000
+#    cpu_count: 1
+#    cpus: 0.75
+    networks:
+     - honeypots_local
+    ports:
+     - "1433:1433"   # SQL Server
+     - "1521:1521"   # Oracle Database
+     - "3306:3306"   # MySQL
+     - "5432:5432"   # PostgreSQL
+     - "6379:6379"   # Redis
+    image: "dtagdevsec/honeypots:24.04"
+    read_only: true
+    volumes:
+     - $HOME/tpotce/data/honeypots/log:/var/log/honeypots
+
