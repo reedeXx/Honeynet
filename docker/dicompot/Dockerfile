@@ -26,7 +26,6 @@ RUN addgroup -g 2000 dicompot && \
     adduser -S -s /bin/ash -u 2000 -D -g 2000 dicompot && \
     chown -R dicompot:dicompot /opt/dicompot
 #
-# Start dicompot
 WORKDIR /opt/dicompot
 USER dicompot:dicompot
 CMD ["./server","-ip","0.0.0.0","-dir","images","-log","/var/log/dicompot/dicompot.log"]
