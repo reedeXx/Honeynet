@@ -21,10 +21,9 @@ RUN apk --no-cache -U add \
     git clone https://github.com/aelth/ddospot && \
     cd ddospot && \
     git checkout 49f515237bd2d5744290ed21dcca9b53def243ba && \
-    # We only want JSON events, setting logger format to ('') ...
+   
     sed -i "/handler.setFormatter(logging.Formatter(/{n;N;d}" /opt/ddospot/ddospot/core/potloader.py && \
     sed -i "s#handler.setFormatter(logging.Formatter(#handler.setFormatter(logging.Formatter(''))#g" /opt/ddospot/ddospot/core/potloader.py && \
-    # ... and remove msg from log message for individual honeypots
     sed -i "s#self.logger.info('\%s - \%s' \% (msg, raw_json))#self.logger.info(raw_json)#g" /opt/ddospot/ddospot/pots/chargen/chargen.py && \
     sed -i "s#self.logger.info('New DNS query - \%s' \% (raw_json))#self.logger.info(raw_json)#g" /opt/ddospot/ddospot/pots/dns/dns.py && \
     sed -i "s#self.logger.info('\%s - \%s' \% (msg, raw_json))#self.logger.info(raw_json)#g" /opt/ddospot/ddospot/pots/generic/generic.py && \
