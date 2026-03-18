@@ -1,6 +1,3 @@
-# Honeynet Management System
-
-A comprehensive honeypot management platform for deploying, monitoring, and analyzing containerized honeypots through a web-based interface.
 
 ## Project Overview
 
